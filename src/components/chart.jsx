@@ -9,7 +9,6 @@ const Chart = () => {
     const yAxisHandler = ({payload:{value},x,y,width,height})=>{
         const hours =("0"+Math.floor(value / 1000 / 60 / 60)).slice(-2)
         const minutes =("0"+Math.floor(value / 1000 / 60 % 60)).slice(-2)
-        console.log(value,hours,minutes)
         return   <text x={x - width / 2} y={y} fill="999" textAnchor="middle" dy={0}>{hours}:{minutes}</text>
     }
 
@@ -19,7 +18,7 @@ const Chart = () => {
 
     const TooltipHandler = ({payload,active})=>{
         if (active && payload?.length>0){
-        const {sleep,wakeUp,duration,saveTime} =payload && payload[0]?.payload
+        const {sleep,wakeUp,duration,saveTime} = payload && payload[0]?.payload
         return(
             <div>
                 <div>
